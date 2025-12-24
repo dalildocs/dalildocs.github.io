@@ -1,173 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dalil Docs - Start</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Dalil Docs - Start</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden; /* ✅ No scrolling */
-        }
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a4d2e 0%, #2d5a3d 50%, #0f3d1f 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a4d2e, #2d5a3d, #0f3d1f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
-        .background-circles {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            z-index: 0;
-        }
+/* Background circles */
+.background-circles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
 
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.08;
-            background: rgba(255, 255, 255, 0.3);
-        }
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    opacity: 0.08;
+}
 
-        .circle1 {
-            width: 300px;
-            height: 300px;
-            top: -100px;
-            left: -100px;
-        }
+.circle1 { width: 300px; height: 300px; top: -100px; left: -100px; }
+.circle2 { width: 250px; height: 250px; bottom: 50px; right: -80px; }
+.circle3 { width: 200px; height: 200px; top: 50%; right: 10%; }
 
-        .circle2 {
-            width: 250px;
-            height: 250px;
-            bottom: 50px;
-            right: -80px;
-        }
+/* Main container */
+.container {
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
 
-        .circle3 {
-            width: 200px;
-            height: 200px;
-            top: 50%;
-            right: 10%;
-        }
+.welcome-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(77,184,163,0.3);
+    border-radius: 30px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    animation: slideUp 0.8s ease;
+}
 
-        .container {
-            z-index: 1;
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .welcome-card {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(77, 184, 163, 0.3);
-            border-radius: 30px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            animation: slideUp 0.8s ease-out;
-        }
+.logo {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
-        .logo {
-            font-size: 80px;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
-        }
+.title {
+    font-size: 46px;
+    color: #fff;
+    margin-bottom: 10px;
+}
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+.subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+}
 
-        .title {
-            font-size: 48px;
-            color: #fff;
-            margin-bottom: 15px;
-        }
+.start-btn {
+    padding: 16px 45px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(135deg, #4db8a3, #2d9d82);
+    box-shadow: 0 4px 15px rgba(77,184,163,0.4);
+}
 
-        .subtitle {
-            font-size: 20px;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 30px;
-        }
+/* Loading section */
+.loading {
+    display: none;
+    margin-top: 20px;
+}
 
-        .start-btn {
-            background: linear-gradient(135deg, #4db8a3 0%, #2d9d82 100%);
-            color: #fff;
-            border: none;
-            padding: 16px 45px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(77, 184, 163, 0.4);
-            text-decoration: none;
-            display: inline-block;
-        }
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top: 4px solid #4db8a3;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    animation: spin 1s linear infinite;
+}
 
-        .start-btn:hover {
-            transform: translateY(-2px);
-        }
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
 
-        .features {
-            margin-top: 40px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+.loading-text {
+    font-size: 16px;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.5px;
+}
 
-        .feature {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(77,184,163,0.2);
-            color: #fff;
-            font-size: 14px;
-        }
+/* Footer box */
+.footer-box {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-        .footer {
-            position: absolute;
-            bottom: 15px;
-            width: 100%;
-            text-align: center;
-            font-size: 12px;
-            color: rgba(255,255,255,0.6);
-        }
+.footer {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(77,184,163,0.3);
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+}
 
-        @media (max-width: 768px) {
-            .welcome-card {
-                padding: 40px 25px;
-            }
-
-            .title {
-                font-size: 32px;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+/* Mobile */
+@media(max-width:768px) {
+    .welcome-card { padding: 40px 25px; }
+    .title { font-size: 32px; }
+}
+</style>
 </head>
 
 <body>
@@ -184,35 +170,39 @@
         <h1 class="title">Dalil Docs</h1>
         <p class="subtitle">Dalil aur Hawala Jaat ka Khazana</p>
 
-        <button class="start-btn" onclick="startApp()">▶️ شروع کریں</button>
+        <button class="start-btn" id="startBtn" onclick="startApp()">▶️ شروع کریں</button>
+
+        <div class="loading" id="loadingBox">
+            <div class="spinner"></div>
+            <div class="loading-text">Redirecting to Dalil Docs...</div>
+        </div>
 
         <audio id="audioPlayer">
             <source src="welcome-voice.mp3" type="audio/mpeg">
         </audio>
-
-        <div class="features">
-            <div class="feature">📚 PDF Library</div>
-            <div class="feature">🔍 Search</div>
-            <div class="feature">⬇️ Download</div>
-        </div>
     </div>
 </div>
 
-<div class="footer">
-    Developed by M Azlan Shahid
+<div class="footer-box">
+    <div class="footer">
+        Developed by M Azlan Shahid
+    </div>
 </div>
 
 <script>
-    const WEB_APP_URL = "https://520054.site.bot-hosting.net/";
-    const audio = document.getElementById("audioPlayer");
+const WEB_APP_URL = "https://520054.site.bot-hosting.net/";
+const audio = document.getElementById("audioPlayer");
 
-    function startApp() {
-        audio.play();
+function startApp() {
+    document.getElementById("startBtn").style.display = "none";
+    document.getElementById("loadingBox").style.display = "block";
 
-        setTimeout(() => {
-            window.location.href = WEB_APP_URL;
-        }, 1200); // voice ke sath redirect
-    }
+    audio.play();
+
+    setTimeout(() => {
+        window.location.href = WEB_APP_URL;
+    }, 2000);
+}
 </script>
 
 </body>
