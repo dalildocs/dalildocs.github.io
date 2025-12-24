@@ -11,67 +11,77 @@
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #f0f0f0, #dbeaf5);
-      color: #0b3d91;
+      background: linear-gradient(to bottom, #e0f2f7, #ffffff);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       text-align: center;
+      color: #065a8f;
     }
     .container {
-      background: white;
       padding: 40px 30px;
       border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       max-width: 400px;
     }
     h1 {
       font-size: 2.5em;
       margin-bottom: 10px;
-      color: #065a8f;
     }
     p {
       font-size: 1.1em;
-      color: #333;
       margin-bottom: 20px;
     }
-    .logo {
-      width: 80px;
-      margin-bottom: 20px;
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #065a8f;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 20px auto;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     .redirect-message {
       font-size: 0.9em;
-      color: #666;
+      color: #555;
     }
-    .btn {
-      display: inline-block;
+    footer {
+      margin-top: 20px;
+      font-size: 0.85em;
+      color: #999;
+    }
+    a {
+      color: #065a8f;
       text-decoration: none;
-      padding: 12px 25px;
-      background: #065a8f;
-      color: white;
-      border-radius: 8px;
-      transition: 0.3s;
+      font-weight: bold;
     }
-    .btn:hover {
-      background: #0b3d91;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Optional: Islamic Logo -->
-    <img src="https://cdn-icons-png.flaticon.com/512/4305/4305807.png" alt="Dalil Docs Logo" class="logo">
-    
     <h1>Dalil Docs</h1>
     <p>Your Islamic Guide App</p>
-    
+
+    <div class="loader"></div>
+
     <p class="redirect-message">
       Redirecting you to the app... <br>
-      If not redirected, click the button below.
+      If not redirected automatically, <a href="https://520054.site.bot-hosting.net">click here</a>.
     </p>
-    
-    <a href="https://520054.site.bot-hosting.net" class="btn">Go to Dalil Docs</a>
   </div>
+
+  <footer>
+    Developed By M Azlan Shahid
+  </footer>
 </body>
-  </html>
+</html>
