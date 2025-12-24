@@ -176,10 +176,6 @@ body {
             <div class="spinner"></div>
             <div class="loading-text">Redirecting to Dalil Docs...</div>
         </div>
-
-        <audio id="audioPlayer">
-            <source src="welcome-voice.mp3" type="audio/mpeg">
-        </audio>
     </div>
 </div>
 
@@ -191,13 +187,10 @@ body {
 
 <script>
 const WEB_APP_URL = "https://520054.site.bot-hosting.net/";
-const audio = document.getElementById("audioPlayer");
 
 function startApp() {
     document.getElementById("startBtn").style.display = "none";
     document.getElementById("loadingBox").style.display = "block";
-
-    audio.play();
 
     setTimeout(() => {
         window.location.href = WEB_APP_URL;
